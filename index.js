@@ -14,10 +14,10 @@ app.listen(3000, () => {
 // Minecraft बॉट का असली फंक्शन
 function startBot() {
   const bot = mineflayer.createBot({
-    host: 'Tecnosense.aternos.me', // तुम्हारी एकदम सही IP
-    port: 6297,                    // तुम्हारा लाइव पोर्ट
-    username: 'bot afk',              
-    version: false                 // <--- यहाँ बस false कर दो
+    host: 'Tecnosense.aternos.me', // तुम्हारी मेन IP
+    port: 25565,                   // इसे वापस 25565 ही कर दो (बहुत ज़रूरी)
+    username: 'ppapu chai vala',       // जो भी तुमने नया नाम रखा है
+    version: false                 // इसे false ही रहने दो
   });
 
   bot.on('spawn', () => {
