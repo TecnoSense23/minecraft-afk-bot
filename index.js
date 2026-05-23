@@ -15,7 +15,7 @@ function startBot() {
     host: 'Tecnosense.aternos.me', 
     port: 62972,                    // तुम्हारा असली पोर्ट
     username: 'Jarvis_AFK_Bot',    
-    version: '1.20.6'               // <--- यहाँ हमने वर्ज़न एकदम फिक्स कर दिया है!
+    version: '26.1.2'               // <--- यहाँ हमने वर्ज़न एकदम फिक्स कर दिया है!
   });
 
   bot.on('spawn', () => {
