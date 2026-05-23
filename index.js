@@ -14,25 +14,37 @@ app.listen(3000, () => {
 // Minecraft बॉट का असली फंक्शन
 function startBot() {
   const bot = mineflayer.createBot({
-    host: 'flatfish.aternos.host', // तुम्हारी मेन IP
-    port: 62972,                   // इसे वापस 25565 ही कर दो (बहुत ज़रूरी)
-    username: 'ppapu_chai_vala',       // जो भी तुमने नया नाम रखा है
-    version: false                 // इसे false ही रहने दो
+    host: 'flatfish.aternos.host',   // सिर्फ .host तक, यहाँ कोई कोलन या नंबर नहीं है
+    port: 62972,                     // तुम्हारा डायनामिक पोर्ट यहाँ अलग से है
+    username: 'Jarvis_AFK',          // बिना स्पेस वाला एकदम साफ़ नाम
+    version: false                   // ऑटो-डिटेक्ट वर्ज़न
   });
 
   bot.on('spawn', () => {
-    console.log('Tecno has spawned successfully!');
-    // एंटी-एएफके ऑटो जंप चालू
-    bot.setControlState('jump', true);
+    console.log('Bot has spawned successfully!');
   });
 
-  // अगर सर्वर रीस्टार्ट हो या बॉट किक हो, तो 10 सेकंड में अपने आप रीकनेक्ट होगा
-  bot.on('end', () => {
+  bot.on('chat', (username, message) => {
+    if (username === bot.username) return;
+    bot.chat('Hello! I am an AFK Bot.');
+  });
+
+  // एंटी-एएफके ऑटो जंप चालू
+  bot.on('physicTick', () => {
+    if (bot.entity) {
+      bot.setControlState('jump', true);
+    }
+  });
+
+  bot.on('disconnect', () => {
     console.log('Bot disconnected. Reconnecting in 10 seconds...');
     setTimeout(startBot, 10000);
   });
 
-  bot.on('error', (err) => console.log('Bot Error:', err));
+  bot.on('error', (err) => {
+    console.log('Bot Error:', err);
+  });
 }
 
+// बॉट को पहली बार स्टार्ट करें
 startBot();
