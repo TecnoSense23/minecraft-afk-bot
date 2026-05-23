@@ -14,8 +14,8 @@ app.listen(3000, () => {
 // Minecraft बॉट का असली फंक्शन
 function startBot() {
   const bot = mineflayer.createBot({
-    host: 'your_server.aternos.me', // यहाँ अपने Aternos का IP डालो
-    port: 25565,                    // अपना पोर्ट डालो (Aternos का डिफ़ॉल्ट 25565 होता है)
+    host: 'Tecnosense.aternos.me', // यहाँ अपने Aternos का IP डालो
+    port: 6297,                    // अपना पोर्ट डालो (Aternos का डिफ़ॉल्ट 25565 होता है)
     username: 'Tecno',              // तुम्हारे बॉट का नाम
     version: '1.20.4'               // अपने सर्वर का वर्ज़न डालो
   });
