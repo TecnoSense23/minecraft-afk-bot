@@ -14,7 +14,7 @@ app.listen(3000, () => {
 // Minecraft बॉट का असली फंक्शन
 function startBot() {
   const bot = mineflayer.createBot({
-    host: 'Tecnosense.aternos.me', // तुम्हारी मेन IP
+    host: 'flatfish.aternos.host:62972', // तुम्हारी मेन IP
     port: 25565,                   // इसे वापस 25565 ही कर दो (बहुत ज़रूरी)
     username: 'ppapu_chai_vala',       // जो भी तुमने नया नाम रखा है
     version: false                 // इसे false ही रहने दो
