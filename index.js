@@ -2,7 +2,7 @@ const express = require('express');
 const mineflayer = require('mineflayer');
 const app = express();
 
-// UptimeRobot के लिए वेब सर्वर
+// UptimeRobot वेब सर्वर
 app.get('/', (req, res) => {
   res.send('Tecno Bot is Alive and Running 24/7!');
 });
@@ -14,10 +14,10 @@ app.listen(3000, () => {
 // Minecraft बॉट का असली फंक्शन
 function startBot() {
   const bot = mineflayer.createBot({
-    host: 'Tecnosense.aternos.me',   // तुम्हारी असली मेन IP (बिना किसी नंबर या कोलन के)
-    port: 25565,                     // अटरनोस का परमानेंट डिफ़ॉल्ट पोर्ट
-    username: 'Jarvis_AFK_Bot',      // एकदम फ्रेश और नया नाम बिना स्पेस के
-    version: false                   // ऑटो-डिटेक्ट वर्ज़न (ViaVersion के लिए बेस्ट)
+    host: 'Tecnosense.aternos.me',   // तुम्हारी मेन IP
+    port: 62972,                     // तुम्हारा असली लाइव पोर्ट (जो स्क्रीनशॉट में दिखा)
+    username: 'Jarvis_AFK_Bot',      // बिना स्पेस वाला साफ़ नाम
+    version: false                   // इसे false ही रखना है ताकि ये नए पेपर वर्ज़न को खुद हैंडल कर सके
   });
 
   bot.on('spawn', () => {
@@ -46,5 +46,5 @@ function startBot() {
   });
 }
 
-// बॉट को स्टार्ट करें
+// बॉट स्टार्ट करें
 startBot();
