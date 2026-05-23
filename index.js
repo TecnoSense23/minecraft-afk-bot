@@ -16,7 +16,7 @@ function startBot() {
   const bot = mineflayer.createBot({
     host: 'Tecnosense.aternos.me', // तुम्हारी मेन IP
     port: 25565,                   // इसे वापस 25565 ही कर दो (बहुत ज़रूरी)
-    username: 'ppapu chai vala',       // जो भी तुमने नया नाम रखा है
+    username: 'PpapuChaiVala',       // जो भी तुमने नया नाम रखा है
     version: false                 // इसे false ही रहने दो
   });
 
