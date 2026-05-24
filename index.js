@@ -11,18 +11,21 @@ app.listen(3000, () => {
   console.log('Web server running on port 3000');
 });
 
-// Minecraft बॉट का फंक्शन
+// ... ऊपर का UptimeRobot वाला कोड वैसा ही रहेगा ...
+
 function startBot() {
   const bot = mineflayer.createBot({
-    host: 'lobster.aternos.host',   // तुम्हारी असली DynIP (बिना पोर्ट के)
-    port: 62972,                     // तुम्हारा असली पोर्ट अलग से
-    username: 'Bot',      // बिना स्पेस का साफ-सुथरा नाम
-    version: '1.20.4'                // तुम्हारा पुराना वाला स्टेबल वर्ज़न
+    host: 'Tecnosense.aternos.me',   // तुम्हारी मेन IP
+    port: 25565,                     // यहाँ वापस 25565 ही डालना है! (यही असली ताला खोलेगा)
+    username: 'Jarvis_AFK',          // साफ नाम
+    version: '1.20.4'                // तुम्हारा 1.20.4 वर्ज़न
   });
 
   bot.on('spawn', () => {
     console.log('Jarvis has spawned successfully!');
   });
+
+  // ... नीचे का बाकी कोड वैसा ही रहने दो ...
 
   bot.on('chat', (username, message) => {
     if (username === bot.username) return;
