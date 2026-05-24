@@ -2,7 +2,6 @@ const express = require('express');
 const mineflayer = require('mineflayer');
 const app = express();
 
-// Render को जिंदा रखने के लिए वेब सर्वर
 app.get('/', (req, res) => {
   res.send('Jarvis Bot is Alive!');
 });
@@ -11,54 +10,43 @@ app.listen(3000, () => {
   console.log('Web server running on port 3000');
 });
 
-// ... ऊपर का UptimeRobot वाला कोड वैसा ही रहेगा ...
-
 function startBot() {
   const bot = mineflayer.createBot({
-    host: 'Tecnosense.aternos.me',   // तुम्हारी मेन IP
-    port: 25565,                     // यहाँ वापस 25565 ही डालना है! (यही असली ताला खोलेगा)
-    username: 'Jarvis_AFK',          // साफ नाम
-    version: '1.20.4'                // तुम्हारा 1.20.4 वर्ज़न
+    host: 'Tecnosense.aternos.me',   
+    port: 25565,                     
+    username: 'Jarvis_AFK',          
+    version: false                   
   });
 
   bot.on('spawn', () => {
     console.log('Jarvis has spawned successfully!');
   });
 
-  // ... नीचे का बाकी कोड वैसा ही रहने दो ...
-
   bot.on('chat', (username, message) => {
     if (username === bot.username) return;
     bot.chat('Hello! I am an AFK Bot.');
   });
 
-  // 🔥 1. ऑटो-रिस्पॉन: अगर बॉट किसी वजह से मर भी जाए, तो तुरंत ज़िंदा हो जाएगा
   bot.on('death', () => {
     console.log('Jarvis mar gaya! Auto-respawning...');
     bot.respawn();
   });
 
-  // 🔥 2. अटरनोस को चकमा देने के लिए प्रो AFK मूवमेंट (यहाँ डाला है सही जगह)
+  // अटरनोस को चकमा देने के लिए प्रो AFK मूवमेंट
   setInterval(() => {
     if (bot.entity) {
-      bot.swingArm('right'); // हाथ घुमाएगा
-      bot.setControlState('sneak', true); // क्राउच करेगा
+      bot.swingArm('right'); 
+      bot.setControlState('sneak', true); 
       setTimeout(() => {
-        if (bot.entity) bot.setControlState('sneak', false); // वापस खड़ा होगा
+        if (bot.entity) bot.setControlState('sneak', false); 
       }, 500); 
-      bot.look(Math.random() * Math.PI * 2, 0); // मुंडी घुमाकर इधर-उधर देखेगा
+      bot.look(Math.random() * Math.PI * 2, 0); 
     }
-  }, 10000); // हर 10 सेकंड में ये हरकत करेगा
+  }, 10000); 
 
-  // एंटी-एएफके ऑटो जंप
-  bot.on('physicTick', () => {
-    if (bot.entity) {
-      bot.setControlState('jump', true);
-    }
-  });
-
-  bot.on('disconnect', () => {
-    console.log('Bot disconnected. Reconnecting in 10 seconds...');
+  // 🔥 सबसे ज़रूरी बदलाव: 'disconnect' की जगह 'end' कर दिया है!
+  bot.on('end', (reason) => {
+    console.log('Bot disconnected or timed out! Reconnecting in 10 seconds...');
     setTimeout(startBot, 10000);
   });
 
@@ -67,5 +55,4 @@ function startBot() {
   });
 }
 
-// बॉट स्टार्ट करें
 startBot();
