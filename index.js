@@ -17,6 +17,7 @@ function startBot() {
     host: 'Tecnosense.aternos.me',   
     port: 25565,                     
     username: 'Jarvis_Pro',          
+    auth: 'offline',                 // <--- बस यह लाइन जोड़नी है
     version: '1.20.4'                
   });
 
