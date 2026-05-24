@@ -2,6 +2,7 @@ const express = require('express');
 const mineflayer = require('mineflayer');
 const app = express();
 
+// Render को जिंदा रखने के लिए वेब सर्वर
 app.get('/', (req, res) => {
   res.send('Jarvis Bot is Alive!');
 });
@@ -10,12 +11,13 @@ app.listen(3000, () => {
   console.log('Web server running on port 3000');
 });
 
+// Minecraft बॉट का फंक्शन
 function startBot() {
   const bot = mineflayer.createBot({
     host: 'Tecnosense.aternos.me',   
     port: 25565,                     
     username: 'Jarvis_AFK',          
-    version: false                   
+    version: '1.20.4'                // 🔥 तुमने बिल्कुल सही कहा, इसे 1.20.4 ही रखेंगे!
   });
 
   bot.on('spawn', () => {
@@ -27,6 +29,7 @@ function startBot() {
     bot.chat('Hello! I am an AFK Bot.');
   });
 
+  // ऑटो-रिस्पॉन
   bot.on('death', () => {
     console.log('Jarvis mar gaya! Auto-respawning...');
     bot.respawn();
@@ -44,7 +47,7 @@ function startBot() {
     }
   }, 10000); 
 
-  // 🔥 सबसे ज़रूरी बदलाव: 'disconnect' की जगह 'end' कर दिया है!
+  // 🔥 सबसे ज़रूरी बदलाव: 'disconnect' की जगह 'end'
   bot.on('end', (reason) => {
     console.log('Bot disconnected or timed out! Reconnecting in 10 seconds...');
     setTimeout(startBot, 10000);
@@ -55,4 +58,5 @@ function startBot() {
   });
 }
 
+// बॉट स्टार्ट करें
 startBot();
