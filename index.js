@@ -16,7 +16,7 @@ function startBot() {
   const bot = mineflayer.createBot({
     host: 'Tecnosense.aternos.me',   
     port: 25565,                     
-    username: 'Jarvis_AFK',          
+    username: 'Jarvis_Pro',          
     version: '1.20.4'                
   });
 
