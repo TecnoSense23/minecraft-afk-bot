@@ -16,7 +16,7 @@ function startBot() {
   const bot = mineflayer.createBot({
     host: 'lobster.aternos.host',   // तुम्हारी असली DynIP (बिना पोर्ट के)
     port: 62972,                     // तुम्हारा असली पोर्ट अलग से
-    username: 'Jarvis_AFK_Bot',      // बिना स्पेस का साफ-सुथरा नाम
+    username: 'Bot',      // बिना स्पेस का साफ-सुथरा नाम
     version: '1.20.4'                // तुम्हारा पुराना वाला स्टेबल वर्ज़न
   });
 
